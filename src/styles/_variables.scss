@@ -1,3 +1,4 @@
+//* pages margins
 $content-margin: 4rem 20%;
 $content-margin-tablet: 4rem 15%;
 $content-margin-mobile: 4rem 10%;
@@ -8,3 +9,7 @@ $mobile: 768px;
 $tablet: 1024px;
 $desktop: 1280px;
 $large: 1536px;
+
+//* fonts
+$header-font: 'Orbitron', system-ui;
+$body-font: 'Kanit', sans-serif;

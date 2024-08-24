@@ -29,13 +29,14 @@ function Translator({ text, type }: TranslatorProps) {
             target: 'fr',
           },
         });
-        const decodedText = he.decode(
+
+        let decodedText = he.decode(
           response.data.data.translations[0].translatedText
         );
 
-        cacheProvider.set(language, text, decodedText);
+        decodedText = decodedText.replace(/\+/g, ' ');
 
-        setTranslatedText(decodedText);
+        cacheProvider.set(language, text, decodedText);
       } catch (error) {
         console.error('Error fetching translation:', error);
       }

@@ -1,6 +1,7 @@
 {
   "home": {
     "title": "Accueil",
-    "description": "Bienvenue sur mon site"
+    "description": "Bienvenue sur StellarNews 🪐",
+    "apod-title": "Photo astronomique du jour"
   }
 }

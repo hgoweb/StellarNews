@@ -1,0 +1,46 @@
+@use '../../styles/variables' as var;
+
+.apodTitle {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.apodContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 7px;
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  h3 {
+    align-self: self-end;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .apodContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    @media (max-width: var.$tablet) {
+      flex-direction: column;
+    }
+
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 7px;
+    }
+
+    p {
+      text-align: justify;
+      font-weight: 300;
+    }
+  }
+}

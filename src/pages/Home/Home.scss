@@ -2,4 +2,35 @@
 
 .homePage {
   margin: var.$content-margin;
+
+  .homePageTitle {
+    margin-top: 2rem;
+  }
+
+  .langButtonsContainer {
+    display: flex;
+
+    .langButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.4);
+
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      img {
+        width: 35px;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
 }
