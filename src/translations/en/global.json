@@ -1,7 +1,14 @@
 {
   "home": {
-    "title": "Home",
-    "description": "Welcome to StellarNews 🪐",
-    "apod-title": "Astronomy Picture of the Day"
+    "title": "Welcome to StellarNews",
+    "description": "Immerse yourself in the fascinating world of astronomy and space news with StellarNews, a go-to source for all the latest news, discoveries and exciting information on the mysteries of the cosmos.",
+    "apod-title": "Astronomy Picture of the Day",
+    "apod-copyright": "Copyright:",
+    "x-user": {
+      "title": "Follow these accounts to stay informed of their latest news",
+      "linkToProfile": "View profile",
+      "following": "following",
+      "followers": "followers"
+    }
   }
 }

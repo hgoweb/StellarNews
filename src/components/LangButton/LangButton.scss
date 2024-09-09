@@ -1,0 +1,71 @@
+.langButtonContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.3rem;
+  z-index: 1;
+
+  .langButtonBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out;
+  }
+
+  &:hover .langButtonBackground {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .globeIcon {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    filter: invert(100%) sepia(38%) saturate(151%) hue-rotate(198deg)
+      brightness(116%) contrast(91%);
+    opacity: 0.95;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  .langButtons {
+    position: absolute;
+    right: 40px;
+    display: flex;
+
+    gap: 0.5rem;
+
+    .langButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.3rem;
+      background: rgba(0, 0, 0, 0.6);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.5;
+
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      img {
+        width: 35px;
+      }
+    }
+  }
+}

@@ -4,15 +4,14 @@ import axios from 'axios';
 import { ApodResponse } from '../src/types';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const { count } = req.query;
-
   try {
     const response = await axios.get<ApodResponse>(
       'https://api.nasa.gov/planetary/apod',
       {
         params: {
           api_key: process.env.VITE_NASA_API_KEY,
-          count,
+
+          // date: '2021-09-17',
         },
       }
     );

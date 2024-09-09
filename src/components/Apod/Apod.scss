@@ -1,8 +1,13 @@
 @use '../../styles/variables' as var;
+@use '../../styles/mixin' as mixin;
 
 .apodTitle {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.loader {
+  @include mixin.loader;
 }
 
 .apodContainer {
@@ -10,7 +15,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   width: 100%;
   border-radius: 7px;
 
@@ -20,27 +24,87 @@
     align-self: self-end;
     margin-bottom: 1rem;
     font-weight: 500;
+    padding: 1rem;
   }
 
   .apodContent {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
 
     @media (max-width: var.$tablet) {
       flex-direction: column;
     }
 
-    img {
+    .apodContentLeft {
       width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      margin-left: 1rem;
+
+      @media (max-width: var.$tablet) {
+        margin-left: 0;
+      }
+
+      .apodIframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        margin-bottom: 1rem;
+
+        -webkit-box-shadow: 0px 2px 15px 1px hsla(0, 0%, 0%, 0.5);
+        box-shadow: 0px 2px 15px 1px hsla(0, 0%, 0%, 0.5);
+
+        @media (max-width: var.$desktop) {
+          width: 400px;
+        }
+
+        @media (max-width: var.$tablet) {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .copyright {
+        font-size: 0.8rem;
+        font-weight: 200;
+        text-align: center;
+        margin: 1rem;
+      }
+
+      img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 7px;
+        margin-bottom: 1rem;
+
+        -webkit-box-shadow: 0px 2px 15px 1px hsla(0, 0%, 0%, 0.5);
+        box-shadow: 0px 2px 15px 1px hsla(0, 0%, 0%, 0.5);
+
+        @media (max-width: var.$large) {
+          height: 400px;
+        }
+
+        @media (max-width: var.$tablet) {
+          width: 90%;
+        }
+
+        @media (max-width: var.$small) {
+          height: 300px;
+        }
+      }
     }
 
-    p {
+    .apodExplanation {
       text-align: justify;
       font-weight: 300;
+      width: fit-content;
+      margin: 1rem;
     }
   }
 }

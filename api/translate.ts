@@ -29,6 +29,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     );
 
+    if (response.status !== 200 || !response.data) {
+      throw new Error('Invalid API response');
+    }
+
     res.status(200).json(response.data);
   } catch (error) {
     res.status(500).json({ error: 'Translation error' });

@@ -1,7 +1,14 @@
 {
   "home": {
-    "title": "Accueil",
-    "description": "Bienvenue sur StellarNews 🪐",
-    "apod-title": "Photo astronomique du jour"
+    "title": "Bienvenue sur StellarNews",
+    "description": "Plongez dans l'univers fascinant de l'astronomie et des actualités spatiales avec StellarNews, une source incontournable pour toutes les dernières nouvelles, découvertes et informations captivantes sur les mystères du cosmos.",
+    "apod-title": "Photo astronomique du jour",
+    "apod-copyright": "Droit d'auteur:",
+    "x-user": {
+      "title": "Suivez ces comptes pour rester informé de leurs dernières actualités",
+      "linkToProfile": "Voir le profil",
+      "following": "abonnements",
+      "followers": "abonnés"
+    }
   }
 }

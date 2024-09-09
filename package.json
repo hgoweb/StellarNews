@@ -10,20 +10,30 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/color-thief-node": "^1.0.4",
     "@vercel/node": "^3.2.8",
     "axios": "^1.7.4",
+    "color-thief-ts": "^1.1.1",
+    "colorthief": "npm:@pioug/colorthief@^3.0.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "framer-motion": "^11.3.30",
     "he": "^1.2.0",
     "i18next": "^23.14.0",
+    "qs": "^6.13.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.0.1",
     "react-router-dom": "^6.26.1",
-    "sass": "^1.77.8"
+    "sass": "^1.77.8",
+    "twitter-api-client": "^1.6.1",
+    "twitter-api-sdk": "^1.2.1"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/he": "^1.2.3",
     "@types/node": "^22.5.0",
+    "@types/qs": "^6.9.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.13.1",

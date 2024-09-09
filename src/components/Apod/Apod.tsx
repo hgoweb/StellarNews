@@ -4,58 +4,101 @@ import { ApodResponse } from '../../types';
 import './Apod.scss';
 import { useTranslation } from 'react-i18next';
 import Translator from '../Translator/Translator';
+import Loader from '../Loader/Loader';
+import { motion } from 'framer-motion';
 
 type ApodProps = {
-  randomize: boolean;
   translate: boolean;
+  animationKey: number;
 };
 
-function Apod({ randomize, translate }: ApodProps) {
+function Apod({ translate, animationKey }: ApodProps) {
   const [apod, setApod] = useState<ApodResponse | undefined>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const { t } = useTranslation();
 
   useEffect(() => {
     const fetchApod = async () => {
       try {
-        const response = await axios.get('/api/apod', {
-          params: {
-            count: randomize ? 1 : undefined,
-          },
-        });
+        setIsLoading(true);
+        const response = await axios.get('/api/apod');
 
         const data = response.data;
 
         setApod(data);
       } catch (error) {
         console.error('Error fetching APOD:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchApod();
-  }, [randomize]);
+  }, []);
 
   return (
     <div>
-      <h2 className="apodTitle">{t('home.apod-title')}</h2>
-      {apod && (
-        <div className="apodContainer">
-          {translate ? (
-            <Translator text={apod.title} type="h3" />
-          ) : (
-            <h3>{apod.title}</h3>
-          )}
+      <motion.h2
+        key={`apodTitle-${animationKey}`}
+        className="apodTitle"
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: 'anticipate', delay: 0.5 }}
+      >
+        {t('home.apod-title')}
+      </motion.h2>
 
+      <div className="apodContainer">
+        {isLoading ? (
+          <Loader padding="2rem" />
+        ) : translate ? (
+          <Translator
+            text={apod ? apod.title : ''}
+            type="h3"
+            loaderPadding="2rem"
+          />
+        ) : (
+          <h3>{apod ? apod.title : ''}</h3>
+        )}
+
+        {isLoading ? (
+          <Loader padding="10rem" />
+        ) : (
           <div className="apodContent">
-            <img src={apod.url} alt={apod.title} />
+            <div className="apodContentLeft">
+              {apod?.media_type === 'image' ? (
+                <img src={apod.url} alt={apod.title} />
+              ) : (
+                <iframe
+                  className="apodIframe"
+                  src={apod?.url}
+                  allow="autoplay; encrypted-media"
+                  style={{ borderRadius: '7px' }}
+                  allowFullScreen
+                ></iframe>
+              )}
+              {apod?.copyright && (
+                <p className="copyright">
+                  {t('home.apod-copyright')}
+                  {apod.copyright}
+                </p>
+              )}
+            </div>
+
             {translate ? (
-              <Translator text={apod.explanation} type="p" />
+              <Translator
+                loaderPadding="7rem"
+                text={apod ? apod.explanation : ''}
+                type="p"
+                className="apodExplanation"
+              />
             ) : (
-              <p>{apod.explanation}</p>
+              <p className="apodExplanation">{apod ? apod.explanation : ''}</p>
             )}
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
