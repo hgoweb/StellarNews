@@ -41,7 +41,7 @@ function Home() {
         initial={{ opacity: 0 }}
         animate={controls}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
+        transition={{ duration: 0.3 }}
       >
         <motion.h1
           key={`homePageTitle-${animationKey}`}
@@ -55,7 +55,7 @@ function Home() {
             key={`homePageTitleLogo-${animationKey}`}
             className="homePageTitleLogo"
             animate={{ opacity: 1, rotateY: 360 }}
-            transition={{ repeat: 0, ease: 'linear', duration: 1.4 }}
+            transition={{ repeat: 0, ease: 'linear', duration: 1.3 }}
           >
             🪐
           </motion.div>

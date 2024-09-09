@@ -1,11 +1,9 @@
-import { motion, AnimatePresence, AnimationControls } from 'framer-motion';
+import { AnimatePresence, AnimationControls, motion } from 'framer-motion';
 import { useState } from 'react';
 import FranceFlag from '../../assets/svg/France.svg';
 import GlobeSvg from '../../assets/svg/icons/globe-outline.svg';
 import UKFlag from '../../assets/svg/United_Kingdom.svg';
-import i18n from '../../utils/i18n';
 import './LangButton.scss';
-import { on } from 'events';
 
 type LangButtonProps = {
   controls: AnimationControls;
