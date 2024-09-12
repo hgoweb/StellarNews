@@ -2,8 +2,11 @@
   "home": {
     "title": "Bienvenue sur StellarNews",
     "description": "Plongez dans l'univers fascinant de l'astronomie et des actualités spatiales avec StellarNews, une source incontournable pour toutes les dernières nouvelles, découvertes et informations captivantes sur les mystères du cosmos.",
-    "apod-title": "Photo astronomique du jour",
-    "apod-copyright": "Droit d'auteur:",
+    "apod": {
+      "title": "Photo astronomique du jour",
+      "subtitle": "Découvrez le cosmos ! Chaque jour, une image ou une photographie différente de notre univers fascinant est présentée, accompagnée d'une brève explication rédigée par un astronome professionnel.",
+      "copyright": "Droit d'auteur:"
+    },
     "x-user": {
       "title": "Suivez ces comptes pour rester informé de leurs dernières actualités",
       "linkToProfile": "Voir le profil",

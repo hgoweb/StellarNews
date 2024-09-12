@@ -11,8 +11,13 @@
 
   .homePageTitle {
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-align: end;
+
+    @media (max-width: var.$small) {
+      margin-top: 3rem;
+      text-align: center;
+    }
 
     .homePageTitleLogo {
       display: inline-block;
@@ -23,8 +28,15 @@
   }
 
   .homeDescription {
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 2rem;
+    text-align: end;
+    margin-left: 10%;
+
+    @media (max-width: var.$small) {
+      text-align: center;
+      margin-left: 0;
+    }
   }
 
   .usersTitle {

@@ -10,8 +10,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       {
         params: {
           api_key: process.env.VITE_NASA_API_KEY,
-
-          // date: '2021-09-17',
         },
       }
     );

@@ -2,7 +2,12 @@
 @use '../../styles/mixin' as mixin;
 
 .apodTitle {
-  margin-top: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.apodSubtitle {
+  font-weight: 300;
   margin-bottom: 1rem;
 }
 

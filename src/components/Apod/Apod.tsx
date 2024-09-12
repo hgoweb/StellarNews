@@ -46,8 +46,18 @@ function Apod({ translate, animationKey }: ApodProps) {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: 'anticipate', delay: 0.5 }}
       >
-        {t('home.apod-title')}
+        {t('home.apod.title')}
       </motion.h2>
+
+      <motion.p
+        key={`apodSubtitle-${animationKey}`}
+        className="apodSubtitle"
+        initial={{ opacity: 0, x: 70 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: 'circOut', delay: 0.5 }}
+      >
+        {t('home.apod.subtitle')}
+      </motion.p>
 
       <div className="apodContainer">
         {isLoading ? (
@@ -80,7 +90,7 @@ function Apod({ translate, animationKey }: ApodProps) {
               )}
               {apod?.copyright && (
                 <p className="copyright">
-                  {t('home.apod-copyright')}
+                  {t('home.apod.copyright')}
                   {apod.copyright}
                 </p>
               )}
