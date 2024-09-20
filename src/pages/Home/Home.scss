@@ -9,47 +9,52 @@
     align-items: center;
   }
 
-  .homePageTitle {
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: end;
-
-    @media (max-width: var.$small) {
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .homePageTitleLogo {
-      display: inline-block;
-      transform-origin: center;
-      margin-left: 0.3rem;
-      font-size: 2rem;
-    }
-  }
-
-  .homeDescription {
-    font-weight: 400;
-    margin-bottom: 2rem;
-    text-align: end;
-    margin-left: 10%;
-
-    @media (max-width: var.$small) {
-      text-align: center;
-      margin-left: 0;
-    }
-  }
-
-  .usersTitle {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    text-align: end;
-  }
-
-  .usersContainer {
+  .content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-top: 1rem;
+
+    .homePageTitle {
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: end;
+
+      @media (max-width: var.$small) {
+        margin-top: 3rem;
+        text-align: center;
+      }
+
+      .homePageTitleLogo {
+        display: inline-block;
+        transform-origin: center;
+        margin-left: 0.3rem;
+        font-size: 2rem;
+      }
+    }
+
+    .homeDescription {
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-align: end;
+      margin-left: 10%;
+
+      @media (max-width: var.$small) {
+        text-align: center;
+        margin-left: 0;
+      }
+    }
+
+    .usersTitle {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      text-align: end;
+    }
+
+    .usersContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 4rem;
+    }
   }
 
   @media (max-width: var.$tablet) {

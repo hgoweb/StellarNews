@@ -7,6 +7,7 @@ import User from '../../components/User/User';
 import i18n from '../../utils/i18n';
 import './Home.scss';
 import { useEffect, useState } from 'react';
+import NavBar from '../../components/NavBar/NavBar';
 
 function Home() {
   const [animationKey, setAnimationKey] = useState<number>(0);
@@ -28,7 +29,7 @@ function Home() {
 
   return (
     <div className="homePage">
-      <div className="header">
+      <div className="header" id="header">
         <StellarNewsLogo height="50px" />
 
         <LangButton
@@ -37,66 +38,95 @@ function Home() {
         />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={controls}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <motion.h1
-          key={`homePageTitle-${animationKey}`}
-          className="homePageTitle"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
+      <div className="content">
+        <NavBar />
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={controls}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
         >
-          {t('home.title')}
-          <motion.div
-            key={`homePageTitleLogo-${animationKey}`}
-            className="homePageTitleLogo"
-            animate={{ opacity: 1, rotateY: 360 }}
-            transition={{ repeat: 0, ease: 'linear', duration: 1.3 }}
+          <motion.h1
+            key={`homePageTitle-${animationKey}`}
+            className="homePageTitle"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
           >
-            🪐
-          </motion.div>
-        </motion.h1>
+            {t('home.title')}
+            <motion.div
+              key={`homePageTitleLogo-${animationKey}`}
+              className="homePageTitleLogo"
+              animate={{ opacity: 1, rotateY: 360 }}
+              transition={{ repeat: 0, ease: 'linear', duration: 1.3 }}
+            >
+              🪐
+            </motion.div>
+          </motion.h1>
 
-        <motion.p
-          key={`homeDescription-${animationKey}`}
-          className="homeDescription"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-        >
-          {t('home.description')}
-        </motion.p>
+          <motion.p
+            key={`homeDescription-${animationKey}`}
+            className="homeDescription"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+          >
+            {t('home.description')}
+          </motion.p>
 
-        <Apod
-          animationKey={animationKey}
-          translate={i18n.language === 'fr' ? true : false}
-        />
+          <Apod
+            animationKey={animationKey}
+            translate={i18n.language === 'fr' ? true : false}
+          />
 
-        <motion.h3
-          key={`usersTitle-${animationKey}`}
-          className="usersTitle"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.25, ease: 'anticipate' }}
-        >
-          {t('home.x-user.title')}
-        </motion.h3>
+          <div id="xUsers">
+            <motion.h3
+              key={`usersTitle-${animationKey}`}
+              className="usersTitle"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.25, ease: 'anticipate' }}
+            >
+              {t('home.x-user.title')}
+            </motion.h3>
 
-        <div className="usersContainer" key={`usersContainer-${animationKey}`}>
-          {xUsers.map((username, index) => (
-            <User
-              key={username}
-              username={username}
-              translate={i18n.language === 'fr' ? true : false}
-              delay={index * 0.3}
-            />
-          ))}
-        </div>
-      </motion.div>
+            <div
+              className="usersContainer"
+              key={`usersContainer-${animationKey}`}
+            >
+              {xUsers.map((username, index) => (
+                <User
+                  key={username}
+                  username={username}
+                  translate={i18n.language === 'fr' ? true : false}
+                  delay={index * 0.3}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div id="spotify">
+            <motion.h3
+              key={`spotifyTitle-${animationKey}`}
+              className="spotifyTitle"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.25, ease: 'anticipate' }}
+            >
+              {'Listen to our Spotify playlist'}
+            </motion.h3>
+            <iframe
+              src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0Yxoavh5qJV"
+              width="100%"
+              height="380"
+              frameBorder="0"
+              allow="encrypted-media"
+              title="Spotify playlist"
+            ></iframe>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 }

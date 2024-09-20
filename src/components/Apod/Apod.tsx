@@ -38,7 +38,7 @@ function Apod({ translate, animationKey }: ApodProps) {
   }, []);
 
   return (
-    <div>
+    <div id="apod">
       <motion.h2
         key={`apodTitle-${animationKey}`}
         className="apodTitle"

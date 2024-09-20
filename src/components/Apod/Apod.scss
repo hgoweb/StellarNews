@@ -3,12 +3,12 @@
 
 .apodTitle {
   margin-top: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .apodSubtitle {
   font-weight: 300;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .loader {
@@ -22,6 +22,7 @@
   justify-content: center;
   width: 100%;
   border-radius: 7px;
+  padding-bottom: 1rem;
 
   background-color: rgba(0, 0, 0, 0.4);
 
@@ -29,7 +30,7 @@
     align-self: self-end;
     margin-bottom: 1rem;
     font-weight: 500;
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .apodContent {
