@@ -99,7 +99,6 @@ function User({ username, translate, delay }: UserProps) {
       const cachedUser = getCachedUser(username);
 
       if (cachedUser) {
-        console.log('User fetched from cache');
         setUser(cachedUser);
         setLoading(false);
         return;
@@ -116,8 +115,6 @@ function User({ username, translate, delay }: UserProps) {
         localStorage.setItem(username, JSON.stringify(userToCache));
 
         setUser(response.data.data);
-
-        console.log('User fetched from API');
       } catch (error) {
         console.error(error);
       } finally {

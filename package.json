@@ -28,7 +28,8 @@
     "react-scroll": "^1.9.0",
     "sass": "^1.77.8",
     "twitter-api-client": "^1.6.1",
-    "twitter-api-sdk": "^1.2.1"
+    "twitter-api-sdk": "^1.2.1",
+    "vercel": "^37.5.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
