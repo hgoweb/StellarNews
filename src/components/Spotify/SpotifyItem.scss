@@ -385,30 +385,36 @@
       }
     }
 
-    .playing {
+    /* ciblage plus spécifique : l'élément qui a à la fois .track et .playing */
+    .track.playing {
       background-color: rgba(0, 0, 0, 0.45);
 
       &:hover {
         background-color: rgba(0, 0, 0, 0.45);
       }
 
-      & .trackNumber {
+      .trackNumber {
         color: #1db954;
       }
 
-      .trackInfos {
-        .trackName {
-          color: #1db954;
-        }
+      .trackInfos .trackName {
+        color: #1db954;
       }
 
-      .imageOverlay {
-        span {
-          color: #1db954;
-        }
+      .imageOverlay span {
+        color: #1db954;
       }
+    }
+
+    /* cas des épisodes : episodeInfos reçoit la class 'playing' */
+    .episodeInfos.playing {
+      background-color: rgba(0, 0, 0, 0.45);
 
       .episodeTitle {
+        color: #1db954;
+      }
+
+      .imageOverlay span {
         color: #1db954;
       }
     }

@@ -8,6 +8,7 @@ import i18n from '../../utils/i18n';
 import './Home.scss';
 import { useEffect, useState } from 'react';
 import NavBar from '../../components/NavBar/NavBar';
+import SpotifyItem from '../../components/Spotify/SpotifyItem';
 
 function Home() {
   const [animationKey, setAnimationKey] = useState<number>(0);
@@ -116,14 +117,12 @@ function Home() {
           >
             {'Listen to our Spotify playlist'}
           </motion.h3>
-          <iframe
-            src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0Yxoavh5qJV"
-            width="100%"
-            height="380"
-            frameBorder="0"
-            allow="encrypted-media"
-            title="Spotify playlist"
-          ></iframe>
+
+          <SpotifyItem type="albums" itemId="3B61kSKTxlY36cYgzvf3cP" />
+
+          <SpotifyItem type="playlists" itemId="1TqYY17dUIbDDlrxdS6Vzd" />
+
+          <SpotifyItem type="shows" itemId="00Fh8hqEDsPggwf6kmF1DB" />
         </div>
       </motion.div>
     </div>
