@@ -90,8 +90,7 @@ function Apod({ translate, animationKey }: ApodProps) {
               )}
               {apod?.copyright && (
                 <p className="copyright">
-                  {t('home.apod.copyright')}
-                  {apod.copyright}
+                  {t('home.apod.copyright')} {apod.copyright}
                 </p>
               )}
             </div>
