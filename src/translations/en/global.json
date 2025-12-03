@@ -2,7 +2,7 @@
   "home": {
     "navbar": {
       "header": "Home",
-      "apod": "Apod",
+      "apod": "APOD",
       "xUsers": "Follow",
       "spotify": "Listen"
     },
@@ -11,13 +11,36 @@
     "apod": {
       "title": "Astronomy Picture of the Day",
       "subtitle": "Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.",
-      "copyright": "Copyright:"
+      "copyright": "Copyright: "
     },
     "x-user": {
       "title": "Follow these accounts to stay informed of their latest news",
       "linkToProfile": "View profile",
       "following": "following",
       "followers": "followers"
+    },
+    "spotify": {
+      "title": "Listen to the latest space-themed music",
+      "description": "Listen to the latest space-themed music on Spotify, curated by StellarNews. From ambient to electronic, we have a playlist for every space enthusiast.",
+      "details": {
+        "album": " songs",
+        "playlist": " saves"
+      },
+      "buttons": {
+        "show-tracks": "Show tracks",
+        "hide-tracks": "Hide tracks",
+        "show-description": "Show description",
+        "hide-description": "Hide description",
+        "episode": "Listen episode on",
+        "link": "Listen on"
+      },
+      "tracks": {
+        "title": "Title"
+      },
+      "show": {
+        "about": "About",
+        "last-episode": "Last episode"
+      }
     }
   }
 }
