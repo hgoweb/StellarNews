@@ -1,7 +1,10 @@
 import ColorThief from 'colorthief';
 import { useEffect, useState } from 'react';
 
-export function useDominantColor(imageUrl: string): string | undefined {
+export function useDominantColor(
+  imageUrl: string,
+  opacity?: string
+): string | undefined {
   const [dominantColor, setDominantColor] = useState<string>();
 
   useEffect(() => {
@@ -13,9 +16,11 @@ export function useDominantColor(imageUrl: string): string | undefined {
 
     img.onload = () => {
       const color = colorThief.getColor(img);
-      setDominantColor(`rgba(${color[0]}, ${color[1]}, ${color[2]}, 0.25)`);
+      setDominantColor(
+        `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${opacity || '0.25'})`
+      );
     };
-  }, [imageUrl]);
+  }, [imageUrl, opacity]);
 
   return dominantColor;
 }

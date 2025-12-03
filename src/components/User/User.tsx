@@ -53,7 +53,7 @@ function User({ username, translate, delay }: UserProps) {
   const [loading, setLoading] = useState<boolean>(true);
 
   const { t } = useTranslation();
-  const dominantColor = useDominantColor(user?.profile_image_url || '');
+  const dominantColor = useDominantColor(user?.profile_image_url || '', '0.3');
 
   const formatNumber = (number: number | undefined): string => {
     if (!number) {
@@ -133,84 +133,94 @@ function User({ username, translate, delay }: UserProps) {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 1, ease: 'easeOut', delay: delay }}
     >
-      <div className="linkToProfile">
-        <a href={`https://x.com/${username}`} target="_blank" rel="noreferrer">
-          {t('home.x-user.linkToProfile')}
-          <img src={xLogo} alt="x-logo" />
-        </a>
-      </div>
       {loading ? (
-        <Loader padding="0.1rem" />
+        <Loader padding="2.5rem" />
       ) : (
-        <div className="profileContainer">
-          <img
-            src={user?.profile_image_url}
-            alt="profilePicture"
-            className="profilePicture"
-          />
-          <div className="leftText">
-            <div className="nameContainer">
-              <h3>{user?.name}</h3>
-              {user?.verified && (
-                <img src={xVerified} alt="verified" className="verified" />
-              )}
-            </div>
-            <p>@{user?.username}</p>
+        <>
+          <div className="linkToProfile">
+            <a
+              href={`https://x.com/${username}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t('home.x-user.linkToProfile')}
+              <img src={xLogo} alt="x-logo" />
+            </a>
           </div>
-        </div>
-      )}
-      {loading ? (
-        <Loader padding="0.1rem" />
-      ) : (
-        <div className="bottomText">
-          {user && translate ? (
-            <Translator
-              text={user?.description}
-              type="p"
-              loaderPadding="0.1rem"
-              className="description"
+
+          <div className="profileContainer">
+            <img
+              src={user?.profile_image_url}
+              alt="profilePicture"
+              className="profilePicture"
             />
-          ) : (
-            <p className="description">{user?.description}</p>
-          )}
-          <div className="userInfo">
-            <div className="userInfoItem">
-              <img src={locationSvg} alt="location" className="icon" />
-              {user && translate ? (
-                <Translator
-                  text={user?.location}
-                  type="p"
-                  loaderPadding="0.1rem"
-                  className="location"
-                />
-              ) : (
-                <p>{user?.location}</p>
+            <div className="leftText">
+              <div className="nameContainer">
+                <h3>{user?.name}</h3>
+                {user?.verified && (
+                  <img src={xVerified} alt="verified" className="verified" />
+                )}
+              </div>
+              <p>@{user?.username}</p>
+            </div>
+          </div>
+
+          <div className="bottomText">
+            {user && translate ? (
+              <Translator
+                text={user?.description}
+                type="p"
+                loaderPadding="0.1rem"
+                className="description"
+              />
+            ) : (
+              <p className="description">{user?.description}</p>
+            )}
+            <div className="userInfo">
+              <div className="userInfoItem">
+                <img src={locationSvg} alt="location" className="icon" />
+                {user && translate ? (
+                  <Translator
+                    text={user?.location}
+                    type="p"
+                    loaderPadding="0.1rem"
+                    className="location"
+                  />
+                ) : (
+                  <p>{user?.location}</p>
+                )}
+              </div>
+              {!user?.entities.url.urls[0] && (
+                <div className="urlsContainer">
+                  <div className="userInfoItem">
+                    <img src={linkSvg} alt="link" className="icon url" />
+                    <a
+                      href={user?.entities.url.urls[0].expanded_url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {user?.entities.url.urls[0].display_url}
+                    </a>
+                  </div>
+                </div>
               )}
             </div>
-            <div className="urlsContainer">
-              <div className="userInfoItem">
-                <img src={linkSvg} alt="link" className="icon url" />
-                <a
-                  href={user?.entities.url.urls[0].expanded_url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {user?.entities.url.urls[0].display_url}
-                </a>
+            <div className="metrics">
+              <div className="metricsText">
+                <span>
+                  {formatNumber(user?.public_metrics.following_count)}
+                </span>
+                <p>{t('home.x-user.following')}</p>
+              </div>
+              <div className="metricsText">
+                <span>
+                  {formatNumber(user?.public_metrics.followers_count)}
+                </span>
+                <p>{t('home.x-user.followers')}</p>
               </div>
             </div>
           </div>
-          <div className="metrics">
-            <div className="metricsText">
-              <span>{formatNumber(user?.public_metrics.following_count)}</span>
-              <p>{t('home.x-user.following')}</p>
-            </div>
-            <div className="metricsText">
-              <span>{formatNumber(user?.public_metrics.followers_count)}</span>
-              <p>{t('home.x-user.followers')}</p>
-            </div>
-          </div>
-        </div>
+        </>
       )}
     </motion.div>
   );
