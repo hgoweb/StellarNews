@@ -55,7 +55,9 @@ function SpotifyItem({ itemId, type }: SpotifyItemProps) {
 
     if (!url) {
       console.warn('No preview available for track', { trackId, trackName });
+
       // TODO: afficher un feedback utilisateur (toast/snackbar)
+
       return;
     }
 

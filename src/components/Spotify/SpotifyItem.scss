@@ -385,7 +385,6 @@
       }
     }
 
-    /* ciblage plus spécifique : l'élément qui a à la fois .track et .playing */
     .track.playing {
       background-color: rgba(0, 0, 0, 0.45);
 
@@ -406,7 +405,6 @@
       }
     }
 
-    /* cas des épisodes : episodeInfos reçoit la class 'playing' */
     .episodeInfos.playing {
       background-color: rgba(0, 0, 0, 0.45);
 
